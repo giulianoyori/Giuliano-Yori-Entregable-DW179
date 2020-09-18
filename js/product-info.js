@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
 showProductInfo(infoProductos);
-prodRelacionados(productsArray);
+prodRelacionados(infoProductos);
 listaComentarios(comentsArray);
 
 
@@ -91,10 +91,7 @@ function showProductInfo(array){
   <div class="p-5"id="bigimage"> <img src=${array.images[0]} ></div>
   </div>
   <div><h3>Ver más de la categoría: <a href="category-info.html">${array.category}</a></h3></div>
-  <br>
-  <div><h4>Productos relacionados:</h4>
-  </div>
- 
+  <br> 
   `;
        
 
@@ -102,9 +99,17 @@ function showProductInfo(array){
         
        
     };
+
     
     function prodRelacionados(array){
-        product = array[1];
+        let relacionado = array.relatedProducts;
+        
+        relacionado.forEach(element =>
+            desarrollarProdRelacionados(element));}
+     
+    function desarrollarProdRelacionados(element){
+        product = productsArray[element];
+        
         htmlContentToAppend2 = `
         <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="list-group-item list-group-item-action">
@@ -125,30 +130,7 @@ function showProductInfo(array){
         </div>
         </a>
         `
-        
-        document.getElementById("relacionados").innerHTML = htmlContentToAppend2;
-        product = array[3];
-        htmlContentToAppend2 = `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="list-group-item list-group-item-action">
-            <div  class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name +`</h4>
-                        
-                        <p class="text-muted">` + product.currency + " " + product.cost + " </br>" + product.soldCount +` Unidades vendidas</p>
-                    </div>
-                 <p>` + product.description + `</p>
-                
-                </div>
-            </div>
-        </div>
-        </a>
-        `
-        
+      
         document.getElementById("relacionados").innerHTML += htmlContentToAppend2;
     }
   
@@ -175,9 +157,6 @@ function showProductInfo(array){
         }
 
         
-            
-    
-
         
       htmlContentToAppend += `
 
