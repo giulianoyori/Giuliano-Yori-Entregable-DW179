@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 var productsArray = [];
-
+//FUNCIÓN QUE GENERA UNA PORCIÓN DE HTML Y LA AÑADE A NUESTRO DOCUMENTO MOSTRANDO CADA  ARTÍCULO CON UN CICLO: "FOR"
+//TOMA LOS DATOS DE LOS ARTÍCULOS DEL ARRAY OBTENIDO  DE LA URL MEDIANTE EL "getJSONData" 
 function showProductsList(array){
 
     let htmlContentToAppend = "";
@@ -50,7 +51,8 @@ function showProductsList(array){
 }
 
 
-
+//fUNCIÓN QUE ORDENA AL ARRAY DE LOS PRODUCTOS SEGÚN EL CRITERIO MEDIANTE EL MÉTODO: "SORT"
+//LUEGO MUESTRA EL ARRAY YA ORDENADO CON LA FUNCIÓN: "showProductsList"
 
 function ordenar(){
     let criterios = document.getElementById('orden');
@@ -80,12 +82,14 @@ function ordenar(){
 }
 ordenar();
 
+//SE OBTIENE POR ID LA INFORMACIÓN DEL INPUT DE BÚSQUEDA
 document.getElementById("barraBusqueda").addEventListener("keyup", buscar);
 
 let arrayEncontrados = [];
+
+//FUNCIÓN QUE FILTRA EL ARRAY DE PRODUCTOS SEGÚN LO QUE SE OBTIENE DEL INPUT DE BÚSQUEDA
+//LUEGO MUESTRA EL ARRAY YA FILLTRADO CON LA FUNCIÓN: "showProductsList"
 function buscar(){
-  
-  
   let barraBusqueda = document.getElementById("barraBusqueda").value.toLowerCase();
   arrayEncontrados = productsArray.filter((product)=>{
     return (product.name.toLowerCase().includes(barraBusqueda) || product.description.toLowerCase().includes(barraBusqueda));
@@ -99,6 +103,10 @@ showProductsList(arrayEncontrados);
   }
 }
 
+
+//FUNCIÓN QUE OBTINE PARÁMETROS DE MAYOR Y MENOR PRECIO Y FILTRA EL ARRAY DE PRODUCTOS SEGÚN 
+//SU PRECIO. DEBE ESTAR DENTRO DEL RANGO
+//LUEGO MUESTRA EL ARRAY YA FILLTRADO CON LA FUNCIÓN: "showProductsList"
 function rangoPrecios(){
   let precioMenor = document.getElementById("preciomenor").value;
   let precioMayor = document.getElementById("preciomayor").value;

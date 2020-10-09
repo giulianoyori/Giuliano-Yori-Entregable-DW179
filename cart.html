@@ -56,22 +56,75 @@
     document.getElementById("nombrebar").innerHTML = info;
     </script>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <br>
+    <table class="table table-hover">
+      <tr>
+        <th><h3>Tu Carrito de compras:</h3></th>
+      </tr>
+    <tr>
+     <th>Imagen</th>
+     <th>Nombre del artículo</th>
+     <th>Moneda</th>
+     <th>Monto</th>
+     <th>Cantidad</th>
+     <th>Subtotal</th>
+    </tr>
+    </table> 
+   
+    <table class="table table-hover" id="tabla"></table> 
+
+<div class="row">
+  <div class="col-6">
+    <form><br><br>
+      <h4>Seleccione un modo de envío:</h4><br>
+      <input  type="radio" id="premium" name="envios" value="premium">
+      <label for="premium">Premium 2 a 5 días (15%)</label><br>
+      <input type="radio" id="express" name="envios" value="express">
+      <label for="express">Express 5 a 8 días  (7%)</label><br>
+      <input type="radio" id="standard" name="envios" value="standard">
+      <label for="standard">Standard 12 a 15 días (5%)</label>
+</form>    
+  </div>
+  <div class="col-6">
+    <form>
+      <h4>Dirección de envío:</h4>
+      <label>Calle:</label>
+      <input class="form-control" placeholder="Nombre de la calle" type="text"><br>
+      <label>Número:</label>
+      <input class="form-control" placeholder="Número de puerta" type="text"><br>
+      <label>Esquina:</label>
+      <input class="form-control" placeholder="Esquina" type="text">
+</form>    
+  </div>
+</div>
+<br>
+   <div class="row">
+    <div class="col-8 text-center border">
+      <h4>Subtotal:</h4>
+    </div>
+    <div  class="col-4 text-center border">
+      <h4 id="subtotal">0</h4>
     </div>
   </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+
+  <div class="row">
+    <div class="col-8 text-center border">
+      <h2>Total:</h2>
+    </div>
+    <div  class="col-4 text-center border">
+      <h2 id="total">0</h2>
     </div>
   </div>
+
+  <br>
+  <br>
+
+
+
+  </div>
+  
+  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

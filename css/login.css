@@ -1,0 +1,47 @@
+body{
+    background: url(../img/fondologin.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 25%;
+    padding: 0;
+  
+}
+.modal-content{
+    background-color: rgb(160, 169, 184);
+    opacity: .85;
+    padding: o 20px;
+    box-shadow: opx opx 5px #8993a7;
+}
+.user-img{
+ margin-top: -70PX;
+ margin-bottom: 35PX;
+}
+
+.user-img img{
+    width: 140px;
+    height: 140px;
+    box-shadow: opx opx 5px #798499;
+}
+.form-group input{
+    height: 42px;
+    font-size: 18px;
+    padding-left: 54px;
+}
+.form-group label{
+    height: 42px;
+    font-size: 25px;
+}
+.form-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    font-size: 23px;
+}
+.form-group#usergroup::before{
+    content: "\f007";
+    
+}
+.form-group#passwordgroup::before{
+    content: "\f023";
+}

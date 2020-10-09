@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", function(e){
         
 });
-        
+
 function guardar(user, password){  
             // si el campo está vacío, muestra un alert indicando el error
              //si el campo no está vacío, guarda al usuario y muestra un alert con el dato ingresado
