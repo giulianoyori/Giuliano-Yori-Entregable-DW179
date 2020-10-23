@@ -41,7 +41,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button id="nombrebar" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="nombrebar" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -52,79 +53,176 @@
       </div>
     </div>
     <script>
-    var info = localStorage.getItem("user");
-    document.getElementById("nombrebar").innerHTML = info;
+      var info = localStorage.getItem("user");
+      document.getElementById("nombrebar").innerHTML = info;
     </script>
   </nav>
   <div class="container">
     <br>
+
     <table class="table table-hover">
-      <tr>
-        <th><h3>Tu Carrito de compras:</h3></th>
-      </tr>
-    <tr>
-     <th>Imagen</th>
-     <th>Nombre del artículo</th>
-     <th>Moneda</th>
-     <th>Monto</th>
-     <th>Cantidad</th>
-     <th>Subtotal</th>
-    </tr>
-    </table> 
-   
-    <table class="table table-hover" id="tabla"></table> 
+      <tbody id="tabla">
 
-<div class="row">
-  <div class="col-6">
-    <form><br><br>
-      <h4>Seleccione un modo de envío:</h4><br>
-      <input  type="radio" id="premium" name="envios" value="premium">
-      <label for="premium">Premium 2 a 5 días (15%)</label><br>
-      <input type="radio" id="express" name="envios" value="express">
-      <label for="express">Express 5 a 8 días  (7%)</label><br>
-      <input type="radio" id="standard" name="envios" value="standard">
-      <label for="standard">Standard 12 a 15 días (5%)</label>
-</form>    
-  </div>
-  <div class="col-6">
-    <form>
-      <h4>Dirección de envío:</h4>
-      <label>Calle:</label>
-      <input class="form-control" placeholder="Nombre de la calle" type="text"><br>
-      <label>Número:</label>
-      <input class="form-control" placeholder="Número de puerta" type="text"><br>
-      <label>Esquina:</label>
-      <input class="form-control" placeholder="Esquina" type="text">
-</form>    
-  </div>
-</div>
-<br>
-   <div class="row">
-    <div class="col-8 text-center border">
-      <h4>Subtotal:</h4>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col-6">
+        <form><br><br>
+          <h4>Seleccione un modo de envío:</h4><br>
+          <input type="radio" id="premium" name="envios" value="premium">
+          <label for="premium">Premium 2 a 5 días (15%)</label><br>
+          <input type="radio" id="express" name="envios" value="express">
+          <label for="express">Express 5 a 8 días (7%)</label><br>
+          <input type="radio" id="standard" name="envios" value="standard">
+          <label for="standard">Standard 12 a 15 días (5%)</label>
+        </form>
+      </div>
+      <div class="col-6">
+        <form>
+          <h4>Dirección de envío:</h4>
+          <label>Calle:</label>
+          <input class="form-control" id="nombreCalle" placeholder="Nombre de la calle" type="text"><br>
+          <label>Número:</label>
+          <input class="form-control" id="numeroCalle" placeholder="Número de puerta" type="text"><br>
+          <label>Esquina:</label>
+          <input class="form-control" id="esquinaCalle" placeholder="Esquina" type="text">
+        </form>
+      </div>
     </div>
-    <div  class="col-4 text-center border">
-      <h4 id="subtotal">0</h4>
+    <br>
+    <div class="row">
+      <div class="col-8 text-center border">
+        <h4>Subtotal:</h4>
+      </div>
+      <div class="col-4 text-center border">
+        <h4 id="subtotal">0</h4>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-8 text-center border">
-      <h2>Total:</h2>
+    <div class="row">
+      <div class="col-8 text-center border">
+        <h2>Costo de envío:</h2>
+      </div>
+      <div class="col-4 text-center border">
+        <h2 id="costoEnvio">(Debe elegir un metodo de envío)</h2>
+      </div>
     </div>
-    <div  class="col-4 text-center border">
-      <h2 id="total">0</h2>
+
+    <div class="row">
+      <div class="col-8 text-center border">
+        <h2>Total:</h2>
+      </div>
+      <div class="col-4 text-center border">
+        <h2 id="total">0</h2>
+      </div>
     </div>
-  </div>
 
-  <br>
-  <br>
-
-
-
+    <br>
+    <br>
+    <div class="row">
+      <h3>Forma de Pago:</h3>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <p id="innerFormaPago">Aún no ha seleccionado una forma de pago</p>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
+          Seleccionar medio de pago
+        </button>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button type="button" onclick="validarDatos();" class="btn btn-primary center-block">
+          Finalizar compra
+        </button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
   </div>
   
-  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Seleccione un medio de pago</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body container">
+
+          <form>
+            <div class="row form-group ">
+              <div class="col-md-12">
+                <label for="tarjetaCreditoRadio">Tarjeta de crédito</label>
+                <input type="radio" id="tarjetaCreditoRadio" name="tarjeta" value="tarjeta">
+              </div>
+
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label>Número de tarjeta:</label>
+                <input class="form-control" id="numTarjeta" type="text">
+              </div>
+
+
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label>Código de seguridad:</label>
+                <input class="form-control" id="codTarjeta" type="text">
+              </div>
+
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label>Vencimiento:</label>
+                <input class="form-control" id="fechaTarjeta" type="text">
+              </div>
+            </div>
+            <hr>
+            <div class="row form-group ">
+              <div class="col-md-12">
+                <label for="transBancRadio">Transferencia Bancaria</label>
+                <input type="radio" id="transBancRadio" name="tarjeta" value="transferencia">
+              </div>
+            </div>
+            <div class="row form-group ">
+              <div class="col-md-12">
+                <label for="numerodecuenta">Numero de cuenta:</label>
+                <input class="form-control" id="numerodecuenta" type="text">
+              </div>
+            </div>
+            <br>
+
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="validarPagos();" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
