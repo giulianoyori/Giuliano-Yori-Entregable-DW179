@@ -36,12 +36,13 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2  d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2  d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2  d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2  d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button id="nombrebar" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="nombrebar" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -52,18 +53,70 @@
       </div>
     </div>
     <script>
-    var info = localStorage.getItem("user");
-    document.getElementById("nombrebar").innerHTML = info;
+      var info = localStorage.getItem("user");
+       document.getElementById("nombrebar").innerHTML = info;
     </script>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    
+    <h2>Mi perfil:</h2>
+    <form>
+      <div class="row">
+        <div class="col-6">
+          <img src="/img/avatar.jpg" id="imagenUsuario" style="max-width: 200px;" alt="">
+        <input class="form-control" id="URLusuario" placeholder="Ingrese la URL de la imagen" type="text" disabled>
+
+        </div>
+        
+      </div>
+      <br>
+      <div class="row">
+
+        <div class="col-md-6">
+
+          
+          <label>Nombre de usuario:</label>
+          <input class="form-control" id="usuario2" placeholder="Ingrese un nombre de usuario" type="text" disabled><br>
+          <label>Nombres:</label>
+          <input class="form-control" id="nombreUsuario" placeholder="Ingrese sus nombes" type="text" disabled><br>
+          <label>Apellidos:</label>
+          <input class="form-control" id="apellidoUsuario" placeholder="Ingrese sus apellidos" type="text" disabled><br>
+
+
+        </div>
+        <div class="col-md-6">
+          <label>Edad:</label>
+          <input class="form-control" id="edadUsuario" placeholder="Ingrese su edad" type="text" disabled><br>
+          <label>E-mail:</label>
+          <input class="form-control" id="emailUsuario" placeholder="Ingrese su e-mail" type="text" disabled><br>
+          <label>Celular:</label>
+          <input class="form-control" id="celularUsuario" placeholder="Ingrese su celular" type="text" disabled><br>
+        </div>
+      
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button id="botonEditar" type="button" onclick="editarDatos();" class="btn btn-primary">
+            Editar Datos
+          </button>
+         
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button id="botonGuardar" style="display:none;" type="button" onclick="guardarDatos();" class="btn btn-primary center-block">
+            Guardar cambios
+          </button>
+          
+        </div>
+        
+      </div>
+    </form>
   </div>
+
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
